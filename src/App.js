@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import List from "./components/List";
 import "./App.css";
 
 function App() {
@@ -15,15 +16,21 @@ function App() {
     setInput("");
   };
 
-  console.log({ list });
+  const removeItem = index => {
+    console.log("here...", index);
+    setList([...list.slice(0, index), ...list.slice(index + 1)]);
+  };
 
   return (
-    <form className="App" onSubmit={e => onSubmit(e)}>
-      <h2>React TO-DO List</h2>
-      <label>Enter a to-do:</label>
-      <input value={input} onChange={e => onChange(e)} />
-      <button>Submit</button>
-    </form>
+    <div className="App">
+      <form onSubmit={e => onSubmit(e)}>
+        <h1>React TO-DO List</h1>
+        <label>Enter a to-do:</label>
+        <input value={input} onChange={e => onChange(e)} />
+        <button>Submit</button>
+      </form>
+      <List list={list} removeItem={index => removeItem(index)} />
+    </div>
   );
 }
 
