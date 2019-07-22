@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [input, setInput] = useState("");
+  const [list, setList] = useState([]);
+
+  const onChange = e => {
+    setInput(e.target.value);
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+    setList([...list, input]);
+    setInput("");
+  };
+
+  console.log({ list });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <form className="App" onSubmit={e => onSubmit(e)}>
+      <h2>React TO-DO List</h2>
+      <label>Enter a to-do:</label>
+      <input value={input} onChange={e => onChange(e)} />
+      <button>Submit</button>
+    </form>
   );
 }
 
