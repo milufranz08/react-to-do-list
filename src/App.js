@@ -17,7 +17,6 @@ function App() {
   };
 
   const removeItem = index => {
-    console.log("here...", index);
     setList([...list.slice(0, index), ...list.slice(index + 1)]);
   };
 
