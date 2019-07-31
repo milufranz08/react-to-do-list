@@ -16,6 +16,10 @@ function App() {
     setInput("");
   };
 
+  const deleteTodo = index => {
+    setList([...list.slice(0, index), ...list.slice(index + 1)]);
+  };
+
   return (
     <div className="App">
       <form onSubmit={addTodo}>
@@ -24,7 +28,7 @@ function App() {
         <input value={input} onChange={changeInput} />
         <button>Submit</button>
       </form>
-      <List list={list} />
+      <List list={list} deleteTodo={deleteTodo} />
     </div>
   );
 }
