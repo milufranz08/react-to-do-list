@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  return <div className="App">test</div>;
+  const [input, setInput] = useState("");
+
+  const changeInput = e => {
+    setInput(e.target.value);
+  };
+
+  return (
+    <div className="App">
+      <input value={input} onChange={changeInput} />
+    </div>
+  );
 }
 
 export default App;
