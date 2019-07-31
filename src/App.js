@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import List from "./components/List";
 import "./App.css";
 
@@ -22,13 +22,13 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={e => onSubmit(e)}>
+      <form onSubmit={onSubmit}>
         <h1>React TO-DO List</h1>
         <label>Enter a to-do:</label>
-        <input value={input} onChange={e => onChange(e)} />
+        <input value={input} onChange={onChange} />
         <button>Submit</button>
       </form>
-      <List list={list} removeItem={index => removeItem(index)} />
+      <List list={list} removeItem={removeItem} />
     </div>
   );
 }
