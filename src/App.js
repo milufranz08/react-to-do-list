@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import List from "./components/List";
 
 function App() {
   const [input, setInput] = useState("");
@@ -23,6 +24,7 @@ function App() {
         <input value={input} onChange={changeInput} />
         <button>Submit</button>
       </form>
+      <List list={list} />
     </div>
   );
 }
