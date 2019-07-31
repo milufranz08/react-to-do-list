@@ -28,7 +28,7 @@ function App() {
         <input value={input} onChange={changeInput} />
         <button>Submit</button>
       </form>
-      <List list={list} removeItem={deleteTodo} />
+      <List list={list} deleteTodo={deleteTodo} />
     </div>
   );
 }

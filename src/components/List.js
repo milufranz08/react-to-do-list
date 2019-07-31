@@ -2,7 +2,7 @@ import React from "react";
 import "./list.css";
 
 function List(props) {
-  const { list, removeItem } = props;
+  const { list, deleteTodo } = props;
 
   return (
     <ul className="list_wrapper">
@@ -11,7 +11,7 @@ function List(props) {
           <li
             className="list_item"
             key={index}
-            onClick={() => removeItem(index)}
+            onClick={() => deleteTodo(index)}
           >
             {item}
           </li>
